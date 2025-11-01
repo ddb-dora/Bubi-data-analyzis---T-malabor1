@@ -53,9 +53,9 @@ top3_df = license_share[license_share['coupon_name'].isin(top3)]
 
 plt.figure(figsize=(9, 5))
 colors = {
-    'Pay As You Go': '#1f77b4',  # blue
-    'Monthly Pass': '#ff7f0e',   # orange
-    'Annual Pass': '#2ca02c'     # green
+    'Pay As You Go': '#1f77b4',  
+    'Monthly Pass': '#ff7f0e',   
+    'Annual Pass': '#2ca02c'     
 }
 
 for name in top3_df['coupon_name'].unique():
