@@ -117,3 +117,27 @@ for bars in [bars1, bars2]:
 
 plt.tight_layout()
 plt.show()
+
+# másik ábra: felhasználók száma az új állomásokon a bevezetést követő 90 napban
+fig, ax = plt.subplots(figsize=(10, 6))
+
+x = np.arange(len(result_df))
+bars = ax.bar(x, result_df['Total (After Opening)'], color='#2ca02c')
+
+ax.set_title('Total Unique Users by Station Group (90 Days After Opening)', 
+             fontsize=14, weight='bold')
+ax.set_xlabel('Station Group', fontsize=12)
+ax.set_ylabel('Number of Unique Users', fontsize=12)
+ax.set_xticks(x)
+ax.set_xticklabels(result_df['Station Group'], rotation=15, ha='right')
+
+for bar in bars:
+    height = bar.get_height()
+    ax.annotate(f'{int(height)}',
+                xy=(bar.get_x() + bar.get_width()/2, height),
+                xytext=(0, 3),  
+                textcoords="offset points",
+                ha='center', va='bottom', fontsize=9)
+
+plt.tight_layout()
+plt.show()
