@@ -3,7 +3,6 @@ import pandas as pd
 import matplotlib.colors as mcolors
 import matplotlib.cm as cm
 
-
 def station_traffic(data):
     start_counts = data.groupby(['start_place_id', 'start_lat', 'start_lng']).size().reset_index(name='count')
     start_counts.rename(columns={'start_place_id': 'station_id', 'start_lat': 'lat', 'start_lng': 'lng'}, inplace=True)
@@ -80,40 +79,4 @@ def generate_maps(stations, open_date_str, filename_prefix, df):
     print(f"  • {filename_prefix}_after_traffic.html\n")
 
 
-generate_maps(
-    stations=["1406-Egressy út - Stefánia út", "1407-Stefánia út - Thököly út",
-              "1408-Zugló vasútállomás", "1409-Kacsóh Pongrác út",
-              "1410-Papp László Budapest Sportaréna", "1411-Reiner Frigyes park"],
-    open_date_str="2023-06-28",
-    filename_prefix="zuglo",
-    df=df
-)
 
-generate_maps(
-    stations=["0921-Mester utca - Ferenc körút", "0922-Haller utca – Mester utca",
-              "0923-Nádasdy utca (játszótér)", "0924-Haller utca - Soroksári út"],
-    open_date_str="2023-09-01",
-    filename_prefix="kerulet9",
-    df=df
-)
-
-generate_maps(
-    stations=["1137-Kopaszi-gát"],
-    open_date_str="2024-04-09",
-    filename_prefix="kopaszi",
-    df=df
-)
-
-generate_maps(
-    stations=["0620-Westend - Balzac utca"],
-    open_date_str="2024-05-01",
-    filename_prefix="westend",
-    df=df
-)
-
-generate_maps(
-    stations=["1128-Csonka János tér"],
-    open_date_str="2022-06-15",
-    filename_prefix="csonka",
-    df=df
-)
